@@ -16,6 +16,9 @@ class MovieListVC: UIViewController {
     let dataManager = DataManager()
     var listOfMovies = [MovieTableData]()
     
+    var selectedMovie: MovieTableData!
+    var selectedPosterImg: UIImage!
+    
     var isDownloading: Bool = false
     var pageNumber: Int = 1
     var currentSearch: String = "movie search"
@@ -33,6 +36,18 @@ class MovieListVC: UIViewController {
         currentSearch = "movies"
         downloadMovies()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        //Send selected movieCell to MovieInfoVC
+        if segue.identifier == "movieDetailsSegue" {
+            let destination = segue.destination as! MovieInfoVC
+            destination.movieID = selectedMovie.id
+            destination.movieTitle = selectedMovie.title
+            destination.moviePoster = selectedPosterImg
+        }
+    }
+    
 
     //Call dataManager and download movies with 'currentSearch' and 'pageNumber'
     func downloadMovies(){
@@ -57,6 +72,8 @@ class MovieListVC: UIViewController {
 
 }
 
+
+
 //MARK: - TableView list of movies
 extension MovieListVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -80,9 +97,16 @@ extension MovieListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //select the cell and segue to MovieInfoVC
+        let cell = self.tableView.cellForRow(at: indexPath) as? MovieCell
+        selectedPosterImg = cell?.posterImg.image
+        selectedMovie = listOfMovies[indexPath.row]
+        performSegue(withIdentifier: "movieDetailsSegue", sender: nil)
         
+        tableView.deselectRow(at: indexPath, animated: false)
     }
 }
+
 
 
 //MARK: - SearchBar

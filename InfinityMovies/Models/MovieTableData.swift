@@ -1,5 +1,5 @@
 //
-//  Movie Object.swift
+//  MovieTableData.swift
 //  InfinityMovies
 //
 //  Created by Andrew Masters on 12/4/21.
@@ -20,8 +20,8 @@ class MovieTableData {
     
     // Takes Dictionary as Object and parses out the information we ant to fill our movie object
     init(_ movieData: [String : AnyObject]){
-        if let movieid = movieData["id"] as? String {
-            self.id = movieid
+        if let movieid = movieData["id"] as? Int {
+            self.id = "\(movieid)"
         } else {
             self.id = "-1"
         }

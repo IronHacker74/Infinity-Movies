@@ -16,13 +16,15 @@
 		95DC0310275AD3FC00D2577E /* InfinityMoviesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DC030F275AD3FC00D2577E /* InfinityMoviesTests.swift */; };
 		95DC031A275AD3FC00D2577E /* InfinityMoviesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DC0319275AD3FC00D2577E /* InfinityMoviesUITests.swift */; };
 		95DC031C275AD3FC00D2577E /* InfinityMoviesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DC031B275AD3FC00D2577E /* InfinityMoviesUITestsLaunchTests.swift */; };
-		95DC032C275BFCCE00D2577E /* Movie Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DC032B275BFCCE00D2577E /* Movie Object.swift */; };
+		95DC032C275BFCCE00D2577E /* MovieTableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DC032B275BFCCE00D2577E /* MovieTableData.swift */; };
 		95DC032F275BFD7300D2577E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DC032E275BFD7300D2577E /* DataManager.swift */; };
 		95DC0331275C0B3D00D2577E /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DC0330275C0B3D00D2577E /* MovieCell.swift */; };
 		95DC0333275C15D400D2577E /* APIKEY.txt in Resources */ = {isa = PBXBuildFile; fileRef = 95DC0332275C15D400D2577E /* APIKEY.txt */; };
 		95DC0334275C15D400D2577E /* APIKEY.txt in Resources */ = {isa = PBXBuildFile; fileRef = 95DC0332275C15D400D2577E /* APIKEY.txt */; };
 		95DC0335275C15D400D2577E /* APIKEY.txt in Resources */ = {isa = PBXBuildFile; fileRef = 95DC0332275C15D400D2577E /* APIKEY.txt */; };
 		95DF0727275C280100A5713C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DF0726275C280100A5713C /* Extensions.swift */; };
+		95DF0729275C41AC00A5713C /* SingleMovieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DF0728275C41AC00A5713C /* SingleMovieData.swift */; };
+		95DF072B275C45F900A5713C /* MovieInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DF072A275C45F900A5713C /* MovieInfoVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,11 +58,13 @@
 		95DC0315275AD3FC00D2577E /* InfinityMoviesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InfinityMoviesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		95DC0319275AD3FC00D2577E /* InfinityMoviesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfinityMoviesUITests.swift; sourceTree = "<group>"; };
 		95DC031B275AD3FC00D2577E /* InfinityMoviesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfinityMoviesUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		95DC032B275BFCCE00D2577E /* Movie Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Movie Object.swift"; sourceTree = "<group>"; };
+		95DC032B275BFCCE00D2577E /* MovieTableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableData.swift; sourceTree = "<group>"; };
 		95DC032E275BFD7300D2577E /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		95DC0330275C0B3D00D2577E /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		95DC0332275C15D400D2577E /* APIKEY.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = APIKEY.txt; path = InfinityMovies/APIKEY.txt; sourceTree = SOURCE_ROOT; };
 		95DF0726275C280100A5713C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		95DF0728275C41AC00A5713C /* SingleMovieData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleMovieData.swift; sourceTree = "<group>"; };
+		95DF072A275C45F900A5713C /* MovieInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				95DC02FC275AD3FA00D2577E /* MovieListVC.swift */,
+				95DF072A275C45F900A5713C /* MovieInfoVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -161,7 +166,8 @@
 		95DC032A275BFC6400D2577E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				95DC032B275BFCCE00D2577E /* Movie Object.swift */,
+				95DC032B275BFCCE00D2577E /* MovieTableData.swift */,
+				95DF0728275C41AC00A5713C /* SingleMovieData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -310,10 +316,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95DC032C275BFCCE00D2577E /* Movie Object.swift in Sources */,
+				95DC032C275BFCCE00D2577E /* MovieTableData.swift in Sources */,
 				95DC032F275BFD7300D2577E /* DataManager.swift in Sources */,
 				95DC0331275C0B3D00D2577E /* MovieCell.swift in Sources */,
+				95DF072B275C45F900A5713C /* MovieInfoVC.swift in Sources */,
 				95DC02FD275AD3FA00D2577E /* MovieListVC.swift in Sources */,
+				95DF0729275C41AC00A5713C /* SingleMovieData.swift in Sources */,
 				95DC02F9275AD3FA00D2577E /* AppDelegate.swift in Sources */,
 				95DC02FB275AD3FA00D2577E /* SceneDelegate.swift in Sources */,
 				95DF0727275C280100A5713C /* Extensions.swift in Sources */,

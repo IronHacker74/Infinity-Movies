@@ -17,6 +17,7 @@ class DataManager {
     
     private let apiBaseURL: String! = "https://api.themoviedb.org/3/"
     
+    //Pull API Key from .txt file
     private func getAPIKey() -> String {
         // Code Found by Caleb @
         // https://stackoverflow.com/questions/31778700/read-a-text-file-line-by-line-in-swift
@@ -32,6 +33,7 @@ class DataManager {
         return "'noapikey'"
     }
     
+    //Download data function that takes a url string path and returns a dictionary
     private func downloadData(_ url_path: String, completion: @escaping ([String : AnyObject]) -> Void){
         print("Making Web Request to: \(url_path)")
         
@@ -58,7 +60,7 @@ class DataManager {
         }.resume()
     }
     
-    
+    // Download movies function that gets called from controller and returns array of movie objects
     func downloadSearchedMovies(_ query: String, with page: Int, completion: @escaping ([MovieTableData]) -> Void){
         let searchString = query.replacingOccurrences(of: " ", with: "%20")
         
@@ -87,6 +89,15 @@ class DataManager {
         })
     }
     
+    // Download a single movie given an id; this assumes searched movies was already run
+    func downloadSingleMovieData(_ id: String, completion: @escaping (SingleMovieData) -> Void){
+        let apiparam = "movie/\(id)?api_key=\(getAPIKey())"
+        let url_path = apiBaseURL + apiparam
+        
+        downloadData(url_path, completion: { parsedJSON in
+            completion(SingleMovieData(parsedJSON))
+        })
+    }
     
     
 }
