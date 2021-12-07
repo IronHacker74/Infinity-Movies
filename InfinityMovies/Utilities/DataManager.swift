@@ -51,6 +51,7 @@ class DataManager {
                 } catch {
                     print("Could not parse JSON")
                     completion([:])
+                    return
                 }
 
             } else {
@@ -95,7 +96,11 @@ class DataManager {
         let url_path = apiBaseURL + apiparam
         
         downloadData(url_path, completion: { parsedJSON in
-            completion(SingleMovieData(parsedJSON))
+            if(!parsedJSON.isEmpty){
+                completion(SingleMovieData(parsedJSON))
+            } else {
+                completion(SingleMovieData())
+            }
         })
     }
     

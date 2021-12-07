@@ -8,11 +8,10 @@
 import Foundation
 import UIKit
 
-
-
 extension UIImageView {
     
     /*
+     UIImageView extension to download a image given the end path of the image.
      Code taken from user Leo Dabus @ the following address
      https://stackoverflow.com/questions/24231680/loading-downloading-image-from-url-on-swift
      */

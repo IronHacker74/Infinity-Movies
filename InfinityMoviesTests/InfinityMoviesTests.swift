@@ -10,6 +10,8 @@ import XCTest
 
 class InfinityMoviesTests: XCTestCase {
 
+    var dataManager = DataManager()
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -29,5 +31,37 @@ class InfinityMoviesTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+}
 
+extension InfinityMoviesTests {
+    func testDataManagerDownloadSingleMovie() throws {
+        //Invalid ID entered
+        var downloadedObject: SingleMovieData!
+        dataManager.downloadSingleMovieData("-1", completion: {data in
+            downloadedObject = data
+            XCTAssertEqual(downloadedObject.description, "'no description found'")
+        })
+        
+        //Test for 'Teen Titans Go! To the Movies' w/ tagline: 'The superhero movie to end all superhero movies. Hopefully.'
+        
+        //Valid ID
+        dataManager.downloadSingleMovieData("474395", completion: {data in
+            downloadedObject = data
+            XCTAssertEqual(downloadedObject.tagline, "The superhero movie to end all superhero movies. Hopefully.")
+        })
+        
+    }
+    
+    func testDataManagerDownloadMoviesSearched() throws {
+        //Test Empty
+        var movieArray = [MovieTableData]()
+        dataManager.downloadSearchedMovies(" 128", with: 1, completion: { data in
+            movieArray = data
+        })
+        
+        XCTAssertEqual(movieArray.count, 0)
+        
+
+        
+    }
 }
