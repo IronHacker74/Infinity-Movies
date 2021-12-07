@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		95802BC1275FDA66001CD191 /* DataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95802BC0275FDA66001CD191 /* DataManagerTests.swift */; };
 		95DC02F9275AD3FA00D2577E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DC02F8275AD3FA00D2577E /* AppDelegate.swift */; };
 		95DC02FB275AD3FA00D2577E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DC02FA275AD3FA00D2577E /* SceneDelegate.swift */; };
 		95DC02FD275AD3FA00D2577E /* MovieListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DC02FC275AD3FA00D2577E /* MovieListVC.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		95802BC0275FDA66001CD191 /* DataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerTests.swift; sourceTree = "<group>"; };
 		95DC02F5275AD3FA00D2577E /* InfinityMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InfinityMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95DC02F8275AD3FA00D2577E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95DC02FA275AD3FA00D2577E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				95DC030F275AD3FC00D2577E /* InfinityMoviesTests.swift */,
+				95802BC0275FDA66001CD191 /* DataManagerTests.swift */,
 			);
 			path = InfinityMoviesTests;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95DC0310275AD3FC00D2577E /* InfinityMoviesTests.swift in Sources */,
+				95802BC1275FDA66001CD191 /* DataManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

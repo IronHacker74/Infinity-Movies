@@ -96,11 +96,7 @@ class DataManager {
         let url_path = apiBaseURL + apiparam
         
         downloadData(url_path, completion: { parsedJSON in
-            if(!parsedJSON.isEmpty){
-                completion(SingleMovieData(parsedJSON))
-            } else {
-                completion(SingleMovieData())
-            }
+            completion(SingleMovieData(parsedJSON))
         })
     }
     

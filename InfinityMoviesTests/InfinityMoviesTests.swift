@@ -9,59 +9,29 @@ import XCTest
 @testable import InfinityMovies
 
 class InfinityMoviesTests: XCTestCase {
-
-    var dataManager = DataManager()
     
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+    override func setUpWithError() throws {}
+    override func tearDownWithError() throws {}
+    func testExample() throws {}
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {
             // Put the code you want to measure the time of here.
+            try? testDataManager()
         }
     }
 }
 
-extension InfinityMoviesTests {
-    func testDataManagerDownloadSingleMovie() throws {
-        //Invalid ID entered
-        var downloadedObject: SingleMovieData!
-        dataManager.downloadSingleMovieData("-1", completion: {data in
-            downloadedObject = data
-            XCTAssertEqual(downloadedObject.description, "'no description found'")
-        })
-        
-        //Test for 'Teen Titans Go! To the Movies' w/ tagline: 'The superhero movie to end all superhero movies. Hopefully.'
-        
-        //Valid ID
-        dataManager.downloadSingleMovieData("474395", completion: {data in
-            downloadedObject = data
-            XCTAssertEqual(downloadedObject.tagline, "The superhero movie to end all superhero movies. Hopefully.")
-        })
-        
-    }
+// Test DataManager - Previous test runtime: ~4 seconds
+func testDataManager() throws {
+    try testDataManagerDownloadSingleMovie_EMPTY()
+    try testDataManagerDownloadSingleMovie_INVALID_ID()
+    try testDataManagerDownloadSingleMovie_GIVEN_ID()
     
-    func testDataManagerDownloadMoviesSearched() throws {
-        //Test Empty
-        var movieArray = [MovieTableData]()
-        dataManager.downloadSearchedMovies(" 128", with: 1, completion: { data in
-            movieArray = data
-        })
-        
-        XCTAssertEqual(movieArray.count, 0)
-        
-
-        
-    }
+    try testDataManagerDownloadMoviesSearched_EMPTY()
+    try testDataManagerDownloadMoviesSearched_INVALID_SEARCH()
+    try testDataManagerDownloadMoviesSearched_SPECIFIC_SEARCH()
+    try testDataManagerDownloadMoviesSearched_FULL_SEARCH()
+    try testDataManagerDownloadMoviesSearched_INVALID_PAGE_NUMBER()
 }
