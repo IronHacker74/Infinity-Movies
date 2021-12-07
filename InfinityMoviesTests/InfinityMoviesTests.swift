@@ -21,17 +21,36 @@ class InfinityMoviesTests: XCTestCase {
             try? testDataManager()
         }
     }
+    
+    // Test DataManager - Previous test runtime: ~4 seconds
+    func testDataManager() throws {
+        try testDataManagerDownloadSingleMovie_EMPTY()
+        try testDataManagerDownloadSingleMovie_INVALID_ID()
+        try testDataManagerDownloadSingleMovie_GIVEN_ID()
+        
+        try testDataManagerDownloadMoviesSearched_EMPTY()
+        try testDataManagerDownloadMoviesSearched_INVALID_SEARCH()
+        try testDataManagerDownloadMoviesSearched_SPECIFIC_SEARCH()
+        try testDataManagerDownloadMoviesSearched_FULL_SEARCH()
+        try testDataManagerDownloadMoviesSearched_INVALID_PAGE_NUMBER()
+    }
 }
 
-// Test DataManager - Previous test runtime: ~4 seconds
-func testDataManager() throws {
-    try testDataManagerDownloadSingleMovie_EMPTY()
-    try testDataManagerDownloadSingleMovie_INVALID_ID()
-    try testDataManagerDownloadSingleMovie_GIVEN_ID()
+
+
+
+extension InfinityMoviesTests {
+    //MovieListVC Tests
     
-    try testDataManagerDownloadMoviesSearched_EMPTY()
-    try testDataManagerDownloadMoviesSearched_INVALID_SEARCH()
-    try testDataManagerDownloadMoviesSearched_SPECIFIC_SEARCH()
-    try testDataManagerDownloadMoviesSearched_FULL_SEARCH()
-    try testDataManagerDownloadMoviesSearched_INVALID_PAGE_NUMBER()
+    func testSearchBarTextFromMovieListVC() throws {
+        let movieListVC = MovieListVC()
+        
+        //empty
+        var searchText: String = ""
+        XCTAssertEqual(movieListVC.validSearch(searchText), false)
+        
+        //only spaces
+        searchText = "    "
+        XCTAssertEqual(movieListVC.validSearch(searchText), false)
+    }
 }

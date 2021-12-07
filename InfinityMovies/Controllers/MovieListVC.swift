@@ -59,13 +59,16 @@ class MovieListVC: UIViewController {
             self.isDownloading = false
             
             self.dispatch_group.notify(queue: .main, execute: {
-                if(!results.isEmpty){
-                    self.listOfMovies += results
-                    self.tableView.reloadData()
-                } else {
-                    print("Results empty - nothing added to listOfMovies")
+                if(results.count < 20){
                     self.isDownloading = true
+                    
+                    if(results.isEmpty){
+                        print("Results empty - nothing added to listOfMovies")
+                        return
+                    }
                 }
+                self.listOfMovies += results
+                self.tableView.reloadData()
             })
         })
     }
@@ -124,7 +127,7 @@ extension MovieListVC: UISearchBarDelegate {
     }
     
     func validSearch(_ text: String) -> Bool{
-        if(text.replacingOccurrences(of: " ", with: "") == "" || text.count < 2){
+        if(text.isEmpty || text.replacingOccurrences(of: " ", with: "") == ""){
             return false
         }
         return true

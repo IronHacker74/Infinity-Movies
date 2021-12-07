@@ -35,7 +35,7 @@ class MovieInfoVC: UIViewController {
             self.dispatch_group.notify(queue: .main, execute: {
                 self.descriptionTV.text = "Description: \(movieData.description)"
                 self.tagLineLbl.text = "Tagline: \(movieData.tagline)"
-                self.bgImg.downloadImg(from: movieData.bgImg_path)
+                self.bgImg.downloadImg(from: movieData.bgImg_path, contentMode: .scaleToFill)
             })
         })
     }

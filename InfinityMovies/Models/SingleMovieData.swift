@@ -28,7 +28,7 @@ class SingleMovieData {
         } else {
             tagline = "'No tagline found'"
         }
-        if let movie_description = movieData["description"] as? String {
+        if let movie_description = movieData["overview"] as? String {
             description = movie_description
         } else {
             description = "'no description found'"
